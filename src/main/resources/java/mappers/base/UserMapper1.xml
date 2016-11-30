@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- namespace和id可以随意写 -->
+<mapper namespace="myNamespace" >
+	<!-- id表示在命名空间中唯一的标识符,可以被用来引用这条语句 -->
+	<select id="getUserByName" resultType="com.demo.mybatis.java.base.User"> 
+		SELECT * FROM user WHERE name = #{name}
+	</select>
+	
+	<select id="getUserList" resultType="com.demo.mybatis.java.base.User"> 
+		SELECT * FROM user
+	</select>
+	
+	<select id="getUserMap" resultType="java.util.HashMap"> 
+		SELECT * FROM user
+	</select>
+</mapper>

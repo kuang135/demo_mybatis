@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- namespace是接口名的全路径 -->
+<mapper namespace="com.demo.mybatis.java.base.UserMapper" > 
+	
+	<!-- id是接口中定义的方法名 -->
+	<select id="getUserList" resultType="com.demo.mybatis.java.base.User"> 
+		SELECT * FROM user
+	</select>
+	
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.demo.mybatis.java.typehandler.UserMapper" >
+
+	<resultMap type="com.demo.mybatis.java.typehandler.User" id="userResultMap" autoMapping="true">
+		<id property="id" column="id"/>
+		<result property="sex" column="sex" typeHandler="com.demo.mybatis.java.typehandler.SexTypeHandler" jdbcType="TINYINT" javaType="String" />
+	</resultMap>
+
+	<select id="getUserList" resultMap="userResultMap"> 
+		SELECT * FROM USER
+	</select>
+	
+	<insert id="addUser" parameterType="com.demo.mybatis.java.typehandler.User" >
+		INSERT INTO USER
+			( ID, NAME, PASSWORD, SEX )
+		VALUES
+			( #{id,jdbcType=VARCHAR,javaType=String}, 
+			  #{name,jdbcType=VARCHAR,javaType=String}, 
+			  #{password,jdbcType=VARCHAR,javaType=String},
+			  #{sex,typeHandler=com.demo.mybatis.java.typehandler.SexTypeHandler})
+	</insert>
+	
+</mapper>
